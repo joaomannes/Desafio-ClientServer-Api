@@ -103,7 +103,7 @@ func BuscaCotacao() (*ApiResponse, error) {
 }
 
 func AtualizarDB(valor float64) error {
-	db, err := gorm.Open(sqlite.Open("goexpert.db"), &gorm.Config{})
+	db, err := OpenDb()
 	if err != nil {
 		return err
 	}
