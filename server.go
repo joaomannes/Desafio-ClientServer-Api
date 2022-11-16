@@ -116,7 +116,7 @@ func AtualizarDB(valor float64) error {
 		Data:  time.Now(),
 		Valor: valor,
 	}
-	db.WithContext(ctx).Create(&c)
+	tx := db.WithContext(ctx)
 
-	return nil
+	return tx.Create(&c).Error
 }
